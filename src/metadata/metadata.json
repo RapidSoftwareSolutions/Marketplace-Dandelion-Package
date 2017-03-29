@@ -1,0 +1,475 @@
+{
+  "package": "Dandelion",
+  "tagline": "Dandelion API",
+  "description": "Dandelion",
+  "image": "http:\/\/logo.clearbit.com\/dandelion.com",
+  "repo": "https:\/\/github.com\/RapidSoftwareSolutions\/Marketplace-Dandelion-Package",
+  "keywords": [
+  ],
+  "accounts": {
+    "domain": "dandelion.com",
+    "credentials": [
+      "accessToken"
+    ]
+  },
+  "blocks": [
+    {
+      "name": "extractEntity",
+      "description": "Automatically tag your texts, extracting Wikipedia entities and enriching your data.",
+      "args": [
+        {
+          "name": "accessToken",
+          "type": "credentials",
+          "info": "Access token obtained from Dandelion",
+          "required": true
+        },
+        {
+          "name": "sourceType",
+          "type": "String",
+          "info": "Type of the input: text,url,html,html_fragment",
+          "required": true
+        },
+        {
+          "name": "source",
+          "type": "String",
+          "info": "request input",
+          "required": true
+        },
+        {
+          "name": "lang",
+          "type": "String",
+          "info": "The language of the text to be annotated. Possible values: de , en , es , fr , it , pt , auto",
+          "required": false
+        },
+        {
+          "name": "minConfidence",
+          "type": "String",
+          "info": "Confidence is a numeric estimation of the quality of the annotation, which ranges between 0 and 1.",
+          "required": false
+        },
+        {
+          "name": "minLength",
+          "type": "Number",
+          "info": "With this parameter you can remove those entities having a spot shorter than a minimum length.",
+          "required": false
+        },
+        {
+          "name": "socialHashtag",
+          "type": "Boolean",
+          "info": "With this parameter you enable special mention parsing to correctly analyze tweets and facebook posts.",
+          "required": false
+        },
+        {
+          "name": "include",
+          "type": "String",
+          "info": "Returns more information on annotated entities. Coma separated: types, categories, abstract, image, lod, alternate_labels",
+          "required": false
+        },
+        {
+          "name": "extraTypes",
+          "type": "String",
+          "info": "Returns more information on annotated entities. Possible values: phone, vat",
+          "required": false
+        },
+        {
+          "name": "country",
+          "type": "String",
+          "info": "This parameter specifies the country which we assume VAT and telephone numbers to be coming from.  Possible values: AD, AE, AM, AO, AQ, AR, AU, BB, BR, BS, BY, CA, CH, CL, CN, CX, DE, FR, GB, HU, IT, JP, KR, MX, NZ, PG, PL, RE, SE, SG, US, YT, ZW",
+          "required": false
+        },
+        {
+          "name": "customSpots",
+          "type": "String",
+          "info": "Enable specific user-defined spots to be used when annotating the text. You can define your own spots or use someone else's ones if they shared the spots-ID with you.",
+          "required": false
+        },
+        {
+          "name": "epsilon",
+          "type": "String",
+          "info": "This parameter defines whether the Entity Extraction API should rely more on the context or favor more common topics to discover entities. Using an higher value favors more common topics, this may lead to better results when processing tweets or other fragmented inputs where the context is not always reliable. Accepted values: 0.0 .. 0.5",
+          "required": false
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getTextSimilarity",
+      "description": "Compare two sentences and get a score of their semantic similarity.",
+      "args": [
+        {
+          "name": "accessToken",
+          "type": "credentials",
+          "info": "Access token obtained from Dandelion",
+          "required": true
+        },
+        {
+          "name": "sourceType",
+          "type": "String",
+          "info": "Type of the input: text,url,html,html_fragment",
+          "required": true
+        },
+        {
+          "name": "source1",
+          "type": "String",
+          "info": "request input",
+          "required": true
+        },
+        {
+          "name": "source2",
+          "type": "String",
+          "info": "request input",
+          "required": true
+        },
+        {
+          "name": "lang",
+          "type": "String",
+          "info": "The language of the text to be annotated. Possible values: de , en , es , fr , it , pt , auto",
+          "required": false
+        },
+        {
+          "name": "bow",
+          "type": "String",
+          "info": "The Text Similarity API normally uses a semantic algorithm for computing similarity of texts. It is possible, however, to use a more classical syntactic algorithm where the semantic one fails. This can be done with this parameter. Possible values: always , one_empty , both_empty , never",
+          "required": false
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "detectLanguages",
+      "description": "Detects language of the source.",
+      "args": [
+        {
+          "name": "accessToken",
+          "type": "credentials",
+          "info": "Access token obtained from Dandelion",
+          "required": true
+        },
+        {
+          "name": "sourceType",
+          "type": "String",
+          "info": "Type of the input: text,url,html,html_fragment",
+          "required": true
+        },
+        {
+          "name": "source",
+          "type": "String",
+          "info": "Request input",
+          "required": true
+        },
+        {
+          "name": "clean",
+          "type": "Boolean",
+          "info": "Set this parameter to true if you want the text to be cleaned from urls, email addresses, hashtags, and more, before being processed.",
+          "required": false
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "identifyTextSentiments",
+      "description": "This API analyses a text and tells whether the expressed opinion is positive, negative, or neutral. Given a short sentence, it returns a label representing the identified sentiment, along with a numeric score ranging from strongly positive (1.0) to extremely negative (-1.0).",
+      "args": [
+        {
+          "name": "accessToken",
+          "type": "credentials",
+          "info": "Access token obtained from Dandelion",
+          "required": true
+        },
+        {
+          "name": "sourceType",
+          "type": "String",
+          "info": "Type of the input: text,url,html,html_fragment",
+          "required": true
+        },
+        {
+          "name": "source",
+          "type": "String",
+          "info": "Request input",
+          "required": true
+        },
+        {
+          "name": "lang",
+          "type": "String",
+          "info": "Possible values: en, it, auto",
+          "required": false
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "searchWikipages",
+      "description": "Looking for Wikipedia pages but don't know their exact title? We can help you to search for the page you want.",
+      "args": [
+        {
+          "name": "accessToken",
+          "type": "credentials",
+          "info": "Access token obtained from Dandelion",
+          "required": true
+        },
+        {
+          "name": "text",
+          "type": "String",
+          "info": "Request input",
+          "required": true
+        },
+        {
+          "name": "lang",
+          "type": "String",
+          "info": "Possible values: en, de, es, fr, it, pt",
+          "required": true
+        },
+        {
+          "name": "limit",
+          "type": "Number",
+          "info": "Restricts the output to the first N results.",
+          "required": false
+        },
+        {
+          "name": "query",
+          "type": "String",
+          "info": "With this parameter you can choose the behaviour of the search: full, prefix",
+          "required": false
+        },
+        {
+          "name": "include",
+          "type": "String",
+          "info": "Returns more information on annotated entities. Coma separated: types, categories, abstract, image, lod, alternate_labels",
+          "required": false
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "createModel",
+      "description": "Create a new model",
+      "args": [
+        {
+          "name": "accessToken",
+          "type": "credentials",
+          "info": "Access token obtained from Dandelion",
+          "required": true
+        },
+        {
+          "name": "model",
+          "type": "JSON",
+          "info": "Formed model. Example: {\"lang\": \"en\", \"description\": \"basic\", \"categories\": [{\"name\": \"sport\", \"topics\": {\"http://en.wikipedia.org/wiki/Sport\": 2}}] }",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getSingleModel",
+      "description": "Read a specific model",
+      "args": [
+        {
+          "name": "accessToken",
+          "type": "credentials",
+          "info": "Access token obtained from Dandelion",
+          "required": true
+        },
+        {
+          "name": "modelId",
+          "type": "String",
+          "info": "Id of existing model",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getModels",
+      "description": "List all your models",
+      "args": [
+        {
+          "name": "accessToken",
+          "type": "credentials",
+          "info": "Access token obtained from Dandelion",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "updateModel",
+      "description": "Update an existing model",
+      "args": [
+        {
+          "name": "accessToken",
+          "type": "credentials",
+          "info": "Access token obtained from Dandelion",
+          "required": true
+        },
+        {
+          "name": "modelId",
+          "type": "String",
+          "info": "Id of existing model",
+          "required": true
+        },
+        {
+          "name": "model",
+          "type": "JSON",
+          "info": "Formed model. Example: {\"lang\": \"en\", \"description\": \"basic\", \"categories\": [{\"name\": \"sport\", \"topics\": {\"http://en.wikipedia.org/wiki/Sport\": 2}}] }",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "classifyText",
+      "description": "This API classifies short documents into a set of user-defined classes. ",
+      "args": [
+        {
+          "name": "accessToken",
+          "type": "credentials",
+          "info": "Access token obtained from Dandelion",
+          "required": true
+        },
+        {
+          "name": "sourceType",
+          "type": "String",
+          "info": "Type of the input: text,url,html,html_fragment",
+          "required": true
+        },
+        {
+          "name": "source",
+          "type": "String",
+          "info": "Request input",
+          "required": true
+        },
+        {
+          "name": "modelId",
+          "type": "String",
+          "info": "The unique ID of the model you want to use. ",
+          "required": true
+        },
+        {
+          "name": "minScore",
+          "type": "String",
+          "info": "Return those categories that get a score above this threshold. ",
+          "required": false
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "deleteModel",
+      "description": "Delete a specific model",
+      "args": [
+        {
+          "name": "accessToken",
+          "type": "credentials",
+          "info": "Access token obtained from Dandelion",
+          "required": true
+        },
+        {
+          "name": "modelId",
+          "type": "String",
+          "info": "Id of existing model",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    }
+  ]
+}
