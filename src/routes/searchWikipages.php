@@ -15,7 +15,9 @@ $app->post('/api/Dandelion/searchWikipages', function ($request, $response, $arg
     $body = array();
     $body['text'] = $post_data['args']['text'];
     $body['token'] = $post_data['args']['accessToken'];
-    $body['lang'] = $post_data['args']['lang'];
+    if(isset($post_data['args']['lang']) && strlen($post_data['args']['lang']) > 0) {
+        $body['lang'] = $post_data['args']['lang'];
+    }
     $body['limit'] = $post_data['args']['limit'];
     $body['query'] = $post_data['args']['query'];
     $body['include'] = $post_data['args']['include'];

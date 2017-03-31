@@ -15,7 +15,9 @@ $app->post('/api/Dandelion/extractEntity', function ($request, $response, $args)
     $body = array();
     $body[$post_data['args']['sourceType']] = $post_data['args']['source'];
     $body['token'] = $post_data['args']['accessToken'];
-    $body['lang'] = $post_data['args']['lang'];
+    if(isset($post_data['args']['lang']) && strlen($post_data['args']['lang']) > 0) {
+        $body['lang'] = $post_data['args']['lang'];
+    }
     $body['min_confidence'] = $post_data['args']['minConfidence'];
     $body['min_length'] = $post_data['args']['minLength'];
     $body['social.hashtag'] = $post_data['args']['socialHashtag'];
