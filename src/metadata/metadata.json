@@ -37,7 +37,8 @@
         },
         {
           "name": "lang",
-          "type": "String",
+          "type": "Select",
+          "options": ["de", "en", "es", "fr", "it", "pt", "auto"],
           "info": "The language of the text to be annotated. Possible values: de , en , es , fr , it , pt , auto",
           "required": false
         },
@@ -61,13 +62,19 @@
         },
         {
           "name": "include",
-          "type": "String",
+          "type": "List",
           "info": "Returns more information on annotated entities. Coma separated: types, categories, abstract, image, lod, alternate_labels",
-          "required": false
+          "required": false,
+          "structure": {
+            "name": "entity",
+            "type": "String",
+            "info": "Single entity"
+          }
         },
         {
           "name": "extraTypes",
-          "type": "String",
+          "type": "Select",
+          "options": ["phone", "vat"],
           "info": "Returns more information on annotated entities. Possible values: phone, vat",
           "required": false
         },
@@ -113,7 +120,8 @@
         },
         {
           "name": "sourceType",
-          "type": "String",
+          "type": "Select",
+          "options": ["text", "url", "html", "html_fragment"],
           "info": "Type of the input: text,url,html,html_fragment",
           "required": true
         },
@@ -131,7 +139,8 @@
         },
         {
           "name": "lang",
-          "type": "String",
+          "type": "Select",
+          "options": ["de", "en", "es", "fr", "it", "pt", "auto"],
           "info": "The language of the text to be annotated. Possible values: de , en , es , fr , it , pt , auto",
           "required": false
         },
@@ -165,7 +174,8 @@
         },
         {
           "name": "sourceType",
-          "type": "String",
+          "type": "Select",
+          "options": ["text", "url", "html", "html_fragment"],
           "info": "Type of the input: text,url,html,html_fragment",
           "required": true
         },
@@ -205,7 +215,8 @@
         },
         {
           "name": "sourceType",
-          "type": "String",
+          "type": "Select",
+          "options": ["text", "url", "html", "html_fragment"],
           "info": "Type of the input: text,url,html,html_fragment",
           "required": true
         },
@@ -217,7 +228,8 @@
         },
         {
           "name": "lang",
-          "type": "String",
+          "type": "Select",
+          "options": ["en", "it", "auto"],
           "info": "Possible values: en, it, auto",
           "required": false
         }
@@ -251,7 +263,8 @@
         },
         {
           "name": "lang",
-          "type": "String",
+          "type": "Select",
+          "options": ["en", "it", "de", "es", "fr", "pt"],
           "info": "Possible values: en, de, es, fr, it, pt",
           "required": true
         },
@@ -269,9 +282,14 @@
         },
         {
           "name": "include",
-          "type": "String",
+          "type": "List",
           "info": "Returns more information on annotated entities. Coma separated: types, categories, abstract, image, lod, alternate_labels",
-          "required": false
+          "required": false,
+          "structure": {
+            "name": "entity",
+            "type": "String",
+            "info": "Single entity"
+          }
         }
       ],
       "callbacks": [
@@ -409,7 +427,8 @@
         },
         {
           "name": "sourceType",
-          "type": "String",
+          "type": "Select",
+          "options": ["text", "url", "html", "html_fragment"],
           "info": "Type of the input: text,url,html,html_fragment",
           "required": true
         },

@@ -21,7 +21,7 @@ $app->post('/api/Dandelion/extractEntity', function ($request, $response, $args)
     $body['min_confidence'] = $post_data['args']['minConfidence'];
     $body['min_length'] = $post_data['args']['minLength'];
     $body['social.hashtag'] = $post_data['args']['socialHashtag'];
-    $body['include'] = $post_data['args']['include'];
+    $body['include'] = is_array($post_data['args']['include']) ? implode(',', $post_data['args']['include']) : $post_data['args']['include'];
     $body['extra_types'] = $post_data['args']['extraTypes'];
     $body['country'] = $post_data['args']['country'];
     $body['custom_spots'] = $post_data['args']['customSpots'];

@@ -20,7 +20,7 @@ $app->post('/api/Dandelion/searchWikipages', function ($request, $response, $arg
     }
     $body['limit'] = $post_data['args']['limit'];
     $body['query'] = $post_data['args']['query'];
-    $body['include'] = $post_data['args']['include'];
+    $body['include'] = is_array($post_data['args']['include']) ? implode(',', $post_data['args']['include']) : $post_data['args']['include'];;
 
     //requesting remote API
     $client = new GuzzleHttp\Client();
