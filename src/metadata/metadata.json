@@ -63,7 +63,7 @@
         {
           "name": "include",
           "type": "List",
-          "info": "Returns more information on annotated entities. Coma separated: types, categories, abstract, image, lod, alternate_labels",
+          "info": "Returns more information on annotated entities. Array: types, categories, abstract, image, lod, alternate_labels",
           "required": false,
           "structure": {
             "name": "entity",
@@ -283,7 +283,7 @@
         {
           "name": "include",
           "type": "List",
-          "info": "Returns more information on annotated entities. Coma separated: types, categories, abstract, image, lod, alternate_labels",
+          "info": "Returns more information on annotated entities. Array: types, categories, abstract, image, lod, alternate_labels",
           "required": false,
           "structure": {
             "name": "entity",

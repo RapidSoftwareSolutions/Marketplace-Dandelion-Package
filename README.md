@@ -14,7 +14,7 @@ Dandelion
  |Datatype|Description|Example
  |--------|-----------|----------
  |Datepicker|String which includes date and time|```2016-05-28 00:00:00```
- |Map|String which includes latitude and longitude coma separated|```50.37, 26.56```
+ |Map|String which includes latitude and longitude Array|```50.37, 26.56```
  |List|Simple array|```["123", "sample"]``` 
  |Select|String with predefined values|```sample```
  |Array|Array of objects|```[{"Second name":"123","Age":"12","Photo":"sdf","Draft":"sdfsdf"},{"name":"adi","Second name":"bla","Age":"4","Photo":"asfserwe","Draft":"sdfsdf"}] ```
@@ -32,7 +32,7 @@ Automatically tag your texts, extracting Wikipedia entities and enriching your d
 | minConfidence| String     | Confidence is a numeric estimation of the quality of the annotation, which ranges between 0 and 1.
 | minLength    | Number     | With this parameter you can remove those entities having a spot shorter than a minimum length.
 | socialHashtag| Boolean    | With this parameter you enable special mention parsing to correctly analyze tweets and facebook posts.
-| include      | List       | Returns more information on annotated entities. Coma separated: types, categories, abstract, image, lod, alternate_labels
+| include      | List       | Returns more information on annotated entities. Array: types, categories, abstract, image, lod, alternate_labels
 | extraTypes   | Select     | Returns more information on annotated entities. Possible values: phone, vat
 | country      | String     | This parameter specifies the country which we assume VAT and telephone numbers to be coming from.  Possible values: AD, AE, AM, AO, AQ, AR, AU, BB, BR, BS, BY, CA, CH, CL, CN, CX, DE, FR, GB, HU, IT, JP, KR, MX, NZ, PG, PL, RE, SE, SG, US, YT, ZW
 | customSpots  | String     | Enable specific user-defined spots to be used when annotating the text. You can define your own spots or use someone else's ones if they shared the spots-ID with you.
@@ -80,7 +80,7 @@ Looking for Wikipedia pages but don't know their exact title? We can help you to
 | lang       | Select     | Possible values: en, de, es, fr, it, pt
 | limit      | Number     | Restricts the output to the first N results.
 | query      | String     | With this parameter you can choose the behaviour of the search: full, prefix
-| include    | List       | Returns more information on annotated entities. Coma separated: types, categories, abstract, image, lod, alternate_labels
+| include    | List       | Returns more information on annotated entities. Array: types, categories, abstract, image, lod, alternate_labels
 
 ## Dandelion.createModel
 Create a new model
