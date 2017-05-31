@@ -25,7 +25,8 @@
         },
         {
           "name": "sourceType",
-          "type": "String",
+          "type": "Select",
+          "options": ["text", "url", "html", "html_fragment"],
           "info": "Type of the input: text,url,html,html_fragment",
           "required": true
         },

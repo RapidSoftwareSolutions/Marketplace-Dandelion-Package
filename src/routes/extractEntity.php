@@ -15,16 +15,31 @@ $app->post('/api/Dandelion/extractEntity', function ($request, $response, $args)
     $body = array();
     $body[$post_data['args']['sourceType']] = $post_data['args']['source'];
     $body['token'] = $post_data['args']['accessToken'];
-    if(isset($post_data['args']['lang']) && strlen($post_data['args']['lang']) > 0) {
+    if (isset($post_data['args']['lang']) && strlen($post_data['args']['lang']) > 0) {
         $body['lang'] = $post_data['args']['lang'];
     }
-    $body['min_confidence'] = $post_data['args']['minConfidence'];
-    $body['min_length'] = $post_data['args']['minLength'];
-    $body['social.hashtag'] = $post_data['args']['socialHashtag'];
+    if (isset($post_data['args']['minConfidence']) && strlen($post_data['args']['minConfidence']) > 0) {
+        $body['min_confidence'] = $post_data['args']['minConfidence'];
+    }
+    if (isset($post_data['args']['minLength']) && strlen($post_data['args']['minLength']) > 0) {
+        $body['min_length'] = $post_data['args']['minLength'];
+    }
+    if (isset($post_data['args']['socialHashtag']) && strlen($post_data['args']['socialHashtag']) > 0) {
+        $body['social.hashtag'] = $post_data['args']['socialHashtag'];
+    }
+    if (isset($post_data['args']['extraTypes']) && strlen($post_data['args']['extraTypes']) > 0) {
+        $body['extra_types'] = $post_data['args']['extraTypes'];
+    }
     $body['include'] = is_array($post_data['args']['include']) ? implode(',', $post_data['args']['include']) : $post_data['args']['include'];
-    $body['extra_types'] = $post_data['args']['extraTypes'];
-    $body['country'] = $post_data['args']['country'];
-    $body['custom_spots'] = $post_data['args']['customSpots'];
+    if (isset($post_data['args']['country']) && strlen($post_data['args']['country']) > 0) {
+        $body['country'] = $post_data['args']['country'];
+    }
+    if (isset($post_data['args']['customSpots']) && strlen($post_data['args']['customSpots']) > 0) {
+        $body['custom_spots'] = $post_data['args']['customSpots'];
+    }
+    if (isset($post_data['args']['epsilon']) && strlen($post_data['args']['epsilon']) > 0) {
+        $body['custom_spots'] = $post_data['args']['epsilon'];
+    }
     $body['epsilon'] = $post_data['args']['epsilon'];
     //requesting remote API
     $client = new GuzzleHttp\Client();

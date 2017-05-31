@@ -26,7 +26,7 @@ Automatically tag your texts, extracting Wikipedia entities and enriching your d
 | Field        | Type       | Description
 |--------------|------------|----------
 | accessToken  | credentials| Access token obtained from Dandelion
-| sourceType   | String     | Type of the input: text,url,html,html_fragment
+| sourceType   | Select     | Type of the input: text,url,html,html_fragment
 | source       | String     | request input
 | lang         | Select     | The language of the text to be annotated. Possible values: de , en , es , fr , it , pt , auto
 | minConfidence| String     | Confidence is a numeric estimation of the quality of the annotation, which ranges between 0 and 1.

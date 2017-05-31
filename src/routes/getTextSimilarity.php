@@ -16,8 +16,12 @@ $app->post('/api/Dandelion/getTextSimilarity', function ($request, $response, $a
     $body[$post_data['args']['sourceType'] . '1'] = $post_data['args']['source1'];
     $body[$post_data['args']['sourceType'] . '2'] = $post_data['args']['source2'];
     $body['token'] = $post_data['args']['accessToken'];
-    $body['lang'] = $post_data['args']['lang'];
-    $body['bow'] = $post_data['args']['bow'];
+    if (isset($post_data['args']['lang']) && strlen($post_data['args']['lang']) > 0) {
+        $body['lang'] = $post_data['args']['lang'];
+    }
+    if (isset($post_data['args']['bow']) && strlen($post_data['args']['bow']) > 0) {
+        $body['bow'] = $post_data['args']['bow'];
+    }
 
     //requesting remote API
     $client = new GuzzleHttp\Client();
