@@ -73,11 +73,15 @@
           }
         },
         {
-          "name": "extraTypes",
-          "type": "Select",
-          "options": ["phone", "vat"],
+          "name": "extraType",
+          "type": "List",
           "info": "Returns more information on annotated entities. Possible values: phone, vat",
-          "required": false
+          "required": false,
+          "structure": {
+            "name": "extraTypes",
+            "type": "String",
+            "info": "Single extraType"
+          }
         },
         {
           "name": "country",
